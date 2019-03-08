@@ -1,0 +1,75 @@
+body{
+	width:70%;
+	max-width:1200px;
+	margin:20px auto;
+	font-family: 'IBM Plex Mono', monospace;
+	font-size:22px;
+	line-height:30px;
+	color:white;
+	background:#212424;
+}
+body ::selection{
+	background:#41bfa9
+}
+
+header{
+	margin-bottom:40px;
+	padding-bottom:10px;
+	display:flex;
+	justify-content:space-between;
+}
+
+#title{
+	font-size:2.5rem;
+	margin-bottom:5px;
+	padding:15px;
+}
+header #title a{
+	color:black;
+	font-weight:bold;
+}
+#title,nav a{
+	background:#ffdb00;
+	color:black;
+	padding:5px;
+	display:inline-block;
+	font-family: 'Share Tech Mono', monospace;
+}
+
+header nav{
+	align-self:flex-end;
+}
+nav a{
+	background:#ffdb00;
+}
+nav a:hover{
+	background:#E9E9CF;
+	color:black
+}
+span .bold{
+	font-weight: bold;
+}
+.main a, select, .button{
+	background:#ffdb00;
+	color: black;
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 18px;
+	margin-right: 2px;
+}
+button:hover, .main a:hover{
+	background:#E9E9CF;
+	color:black
+}
+select{
+	margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 760px){
+	body{width:90%;
+		font-size:18px;
+		line-height:22px
+	}
+	header{
+		display:block
+	}
+}
