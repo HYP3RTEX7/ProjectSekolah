@@ -50,6 +50,11 @@
             Sesuai kesepakatan wali kelas dan rapat kelas, denda yang diterima oleh siswa atau siswi
             yang tidak piket adalah sebesar Rp.30.000,-
         </p>
+        <h3>Kontak</h3>
+        <p>
+            Jika ada sesuatu yang ingin di bicarakan mengenai website ini, Anda bisa email saya
+            dengan subject <u>Surat-Projectsekolah</u> ke rafliramdhn@gmail.com
+        </p>
     </main>
 </body>
 
