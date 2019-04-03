@@ -1,19 +1,3 @@
-<?php
-require_once('../koneksi.php');
-error_reporting(0);
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Rubik+Mono+One|Share+Tech+Mono" rel="stylesheet">
-    <title>ProjectSekolah!</title>
-</head>
-
 <script>
     function pilihsemua() {
         var daftarku = document.getElementsByName("siswa[]");
@@ -35,22 +19,8 @@ error_reporting(0);
         }
     }
 </script>
-
-<body>
-    <header>
-        <div id="title">
-            <a href="../index.php">ProjectSekolah!</a>
-        </div>
-        <nav>
-            <a href="piket.php">Piket</a>
-            <a href="tidakpiket.php">Tidak Piket</a>
-            <a href="../hasil.php">Liat Hasil</a>
-            <a href="../cek.php">Cek Status Siswa</a>
-        </nav>
-    </header>
-
     <div class="main">
-        <h1>Input Siswa Piket!</h1>
+
         <form action="" method='post'>
             <select name="hari">
                 <option value="1">senin</option>
@@ -64,6 +34,7 @@ error_reporting(0);
         </form>
 
 
+
         <?php
         $ambilangka = $_POST['hari'];
         $sql = "SELECT nama FROM siswa WHERE id_piket = $ambilangka";
@@ -73,7 +44,7 @@ error_reporting(0);
                     echo "<table>";
                     echo '<a href="javascript:pilihsemua()">Check All</a>&nbsp;&nbsp;
         <a href="javascript:bersihkan()">Uncheck All</a>';
-                    echo "<form method='POST' action='input.php'>";
+                    echo "<form method='POST' action='assets/action/act-tidakpiket.php'>";
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>" .
@@ -82,14 +53,26 @@ error_reporting(0);
                         echo "<td>" . $row['nama'] . "</td>";
                         echo "</tr>";
                     }
+
+
+                    echo "</tr>";
+                    echo "<tr>";
                     echo "<td>" . "<input class='button' type='submit' name='submit' value='Input'>" . "</td>";
+
+                    echo "</tr>";
                 }
             }
         }
         ?>
-
         <table>
             <tr>
+                <td>keterangan
+                    <select name="keterangan">
+                        <option value="Sakit">Sakit</option>
+                        <option value="Alpha">Alpha</option>
+                        <option value="Malas">Malas</option>
+                    </select>
+                </td>
                 <td>Hari/Tanggal</td>
                 <?php
                 $tanggal = date('d-m-Y');
@@ -104,9 +87,10 @@ error_reporting(0);
                     'Sat' => 'Sabtu'
                 );
                 ?>
-                <td><input type="text" name="tanggal" value="<?php echo  $dayList[$day] . ", {$tanggal} "; ?>" readonly></bu>
-                </td>
+
+                <td><input type="text" class="button" name="tanggal" value="<?php echo  $dayList[$day] . ", {$tanggal} "; ?>" readonly></td>
+
+
             </tr>
         </table>
-    </div>
-</body> 
+    </div> 

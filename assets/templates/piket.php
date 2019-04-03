@@ -1,19 +1,3 @@
-<?php
-require_once('../koneksi.php');
-error_reporting(0);
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/style.css">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Rubik+Mono+One|Share+Tech+Mono" rel="stylesheet">
-    <title>ProjectSekolah!</title>
-</head>
-
 <script>
     function pilihsemua() {
         var daftarku = document.getElementsByName("siswa[]");
@@ -35,22 +19,8 @@ error_reporting(0);
         }
     }
 </script>
-
-<body>
-    <header>
-        <div id="title">
-            <a href="../index.php">ProjectSekolah!</a>
-        </div>
-        <nav>
-            <a href="piket.php">Piket</a>
-            <a href="tidakpiket.php">Tidak Piket</a>
-            <a href="../hasil.php">Liat Hasil</a>
-            <a href="../cek.php">Cek Status Siswa</a>
-        </nav>
-    </header>
-
     <div class="main">
-        <h1>Input Siswa Piket!</h1>
+
         <form action="" method='post'>
             <select name="hari">
                 <option value="1">senin</option>
@@ -60,9 +30,8 @@ error_reporting(0);
                 <option value="5">jumat</option>
             </select>
             <td><button class='button' type="submit" name="submit"> Pilih</button></td>
-            <td><a href="../index.php">Kembali!</a></td>
+            <td><a href="index.php">Kembali!</a></td>
         </form>
-
 
 
         <?php
@@ -74,7 +43,7 @@ error_reporting(0);
                     echo "<table>";
                     echo '<a href="javascript:pilihsemua()">Check All</a>&nbsp;&nbsp;
         <a href="javascript:bersihkan()">Uncheck All</a>';
-                    echo "<form method='POST' action='inputtidakpiket.php'>";
+                    echo "<form method='POST' action='assets/action/act-piket.php'>";
                     while ($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>" .
@@ -83,26 +52,14 @@ error_reporting(0);
                         echo "<td>" . $row['nama'] . "</td>";
                         echo "</tr>";
                     }
-
-
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>" . "<input class='btn btn-primary' type='submit' name='submit' value='Input'>" . "</td>";
-
-                    echo "</tr>";
+                    echo "<td>" . "<input class='button' type='submit' name='submit' value='Input'>" . "</td>";
                 }
             }
         }
         ?>
+
         <table>
             <tr>
-                <td>keterangan
-                    <select name="keterangan">
-                        <option value="Sakit">Sakit</option>
-                        <option value="Alpha">Alpha</option>
-                        <option value="Malas">Malas</option>
-                    </select>
-                </td>
                 <td>Hari/Tanggal</td>
                 <?php
                 $tanggal = date('d-m-Y');
@@ -117,10 +74,9 @@ error_reporting(0);
                     'Sat' => 'Sabtu'
                 );
                 ?>
-
-                <td><input type="text" name="tanggal" value="<?php echo  $dayList[$day] . ", {$tanggal} "; ?>" readonly></td>
-
-
+                <td><input type="text" name="tanggal" value="<?php echo  $dayList[$day] . ", {$tanggal} "; ?>" readonly></bu>
+                </td>
             </tr>
         </table>
-    </div> 
+    </div>
+</body>
